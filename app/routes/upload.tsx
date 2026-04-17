@@ -5,8 +5,10 @@ import {usePuterStore} from "~/lib/puter";
 import {convertPdfToImage} from "~/lib/pdf2image";
 import {generateUUID} from "~/lib/utils";
 import {prepareInstructions} from "../../constants";
+import {useNavigate} from "react-router";
 
 const Upload = () => {
+    const navigate = useNavigate();
     const [isProcessing, setIsProcessing] = useState(false);
     const [statusText, setStatusText] = useState("");
     const [file, setFile] = useState<File | null>(null);
@@ -65,6 +67,8 @@ const Upload = () => {
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText("Analyzing complete , rederecting to results page...");
         console.log(data);
+        navigate(`/resume/${uuid}`);
+
 
     }
 
