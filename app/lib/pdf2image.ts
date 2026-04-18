@@ -15,9 +15,9 @@ async function loadPdfJs(): Promise<any> {
     isLoading = true;
     // @ts-expect-error - pdfjs-dist/build/pdf.mjs is not a module
     loadPromise = import("pdfjs-dist/build/pdf.mjs").then((lib) => {
-        // Use CDN worker URL for better reliability on deployment
+        // Use jsdelivr CDN for the worker - automatically matches the version
         lib.GlobalWorkerOptions.workerSrc =
-            "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+            "https://cdn.jsdelivr.net/npm/pdfjs-dist@5.4.624/build/pdf.worker.min.mjs";
         pdfjsLib = lib;
         isLoading = false;
         return lib;
