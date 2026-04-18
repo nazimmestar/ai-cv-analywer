@@ -61,7 +61,7 @@ form {
     @apply bg-gradient-to-br from-[#1e3a8a] to-[#1e293b] p-4 rounded-2xl border border-dark-border;
   }
   .primary-button {
-    @apply primary-gradient text-white rounded-full px-4 py-2 cursor-pointer w-full hover:primary-gradient-hover transition-all;
+    @apply primary-gradient text-white rounded-full px-4 py-2 max-sm:px-3 max-sm:py-1 max-sm:text-sm cursor-pointer w-full hover:primary-gradient-hover transition-all;
   }
   .resume-nav {
     @apply flex flex-row justify-between items-center p-4 border-b border-dark-border bg-[#1a1f35]/50 backdrop-blur;
@@ -101,7 +101,7 @@ form {
   }
 
   .navbar {
-    @apply flex flex-row justify-between items-center bg-[#1e293b]/80 backdrop-blur-md rounded-full p-4 w-full px-10 max-w-[1200px] mx-auto border border-dark-border;
+    @apply flex flex-row justify-between items-center bg-[#1e293b]/80 backdrop-blur-md rounded-full p-3 max-sm:p-2 w-full px-8 max-sm:px-4 max-w-[1200px] mx-auto border border-dark-border;
   }
 
   .score-badge {
