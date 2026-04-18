@@ -71,11 +71,11 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
                                                                 children,
                                                                 className = "",
                                                             }) => {
-    return (
-        <div className={`overflow-hidden border-b border-gray-200 ${className}`}>
-            {children}
-        </div>
-    );
+     return (
+         <div className={`overflow-hidden border-b border-dark-border ${className}`}>
+             {children}
+         </div>
+     );
 };
 
 interface AccordionHeaderProps {
@@ -96,46 +96,45 @@ export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
     const { toggleItem, isItemActive } = useAccordion();
     const isActive = isItemActive(itemId);
 
-    const defaultIcon = (
-        <svg
-            className={cn("w-5 h-5 transition-transform duration-200", {
-                "rotate-180": isActive,
-            })}
-            fill="none"
-            stroke="#98A2B3"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-            />
-        </svg>
-    );
+     const defaultIcon = (
+         <svg
+             className={cn("w-5 h-5 transition-transform duration-200", {
+                 "rotate-180": isActive,
+             })}
+             fill="none"
+             stroke="#60a5fa"
+             viewBox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg"
+         >
+             <path
+                 strokeLinecap="round"
+                 strokeLinejoin="round"
+                 strokeWidth={2}
+                 d="M19 9l-7 7-7-7"
+             />
+         </svg>
+     );
 
     const handleClick = () => {
         toggleItem(itemId);
     };
 
-    return (
-        <button
-            onClick={handleClick}
-            className={`
-        w-full px-4 py-3 text-left
-        focus:outline-none
-        transition-colors duration-200 flex items-center justify-between cursor-pointer
-        ${className}
-      `}
-        >
-            <div className="flex items-center space-x-3">
-                {iconPosition === "left" && (icon || defaultIcon)}
-                <div className="flex-1">{children}</div>
-            </div>
-            {iconPosition === "right" && (icon || defaultIcon)}
-        </button>
-    );
+     return (
+         <button
+             onClick={handleClick}
+             className={`
+         w-full px-4 py-3 text-left text-light-text
+         focus:outline-none hover:bg-[#1a1a2e]/50 transition-all duration-200 flex items-center justify-between cursor-pointer rounded-lg
+         ${className}
+       `}
+         >
+             <div className="flex items-center space-x-3">
+                 {iconPosition === "left" && (icon || defaultIcon)}
+                 <div className="flex-1">{children}</div>
+             </div>
+             {iconPosition === "right" && (icon || defaultIcon)}
+         </button>
+     );
 };
 
 interface AccordionContentProps {
@@ -152,15 +151,15 @@ export const AccordionContent: React.FC<AccordionContentProps> = ({
     const { isItemActive } = useAccordion();
     const isActive = isItemActive(itemId);
 
-    return (
-        <div
-            className={`
-        overflow-hidden transition-all duration-300 ease-in-out
-        ${isActive ? "max-h-fit opacity-100" : "max-h-0 opacity-0"}
-        ${className}
-      `}
-        >
-            <div className="px-4 py-3 ">{children}</div>
-        </div>
-    );
+     return (
+         <div
+             className={`
+         overflow-hidden transition-all duration-300 ease-in-out text-secondary-text
+         ${isActive ? "max-h-fit opacity-100" : "max-h-0 opacity-0"}
+         ${className}
+       `}
+         >
+             <div className="px-4 py-3">{children}</div>
+         </div>
+     );
 };

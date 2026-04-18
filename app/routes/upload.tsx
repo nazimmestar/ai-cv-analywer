@@ -88,46 +88,44 @@ const Upload = () => {
 
 
     return (
-        <main className ="bg-[url('/images/bg-main.svg')] bg-cover" >
+        <main>
             <Navbar />
             <section className = "main-section">
-                <div className="page-heading  py-16">
-                    <h1>Smart feedback for your Dream job</h1>
+                <div className="page-heading py-16">
+                    <h1>Smart Feedback for Your Dream Job</h1>
                     {isProcessing ? (
                        <>
-                           <h2>{statusText}</h2>
-                           <img src={"images/resume-scan.gif"} className="w-full"/>
-                       </>
-                    ) : (
-                        <h2>Drop your resume for an ATS score and improvement tips</h2>
-                        )}
+                            <h2 className="text-secondary-text text-xl font-light">{statusText}</h2>
+                            <img src="images/resume-scan.gif" className="w-full max-w-md rounded-2xl shadow-lg mt-8"/>
+                        </>
+                     ) : (
+                         <h2 className="text-secondary-text text-xl font-light">Drop your resume for an ATS score and improvement tips</h2>
+                     )}
                     {!isProcessing && (
-                        <form id ="upload-form" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8">
-                            <div className="form-div">
-                                <label htmlFor ="company-name">Company name</label>
-                                <input type="text" id="company-name" name="company-name" placeholder="Company Name" />
-                            </div>
-                            <div className="form-div">
-                                <label htmlFor ="job-title">Job Title</label>
-                                <input type="text" id="job-title" name="job-title" placeholder="Job Title" />
-                            </div>
-                            <div className="form-div">
-                                <label htmlFor ="job-description">Job Description</label>
-                                <textarea rows={5} id="job-description" name="job-description" placeholder="Job Description" />
-                            </div>
-                            <div className="form-div">
-                                <label htmlFor ="uploader">Upload Resume</label>
-                                <FileUploader onFileSelect={handleFileSelect} />
-
-                            </div>
-                            <button type="submit" className="primary-button">Analyse Resume</button>
-
-                        </form>
-                    )}
-
+                         <form id="upload-form" onSubmit={handleSubmit} className="flex flex-col gap-6 mt-8 w-full max-w-2xl">
+                             <div className="form-div">
+                                 <label htmlFor="company-name" className="font-semibold text-light-text">Company Name</label>
+                                 <input type="text" id="company-name" name="company-name" placeholder="e.g., Google, Microsoft" required/>
+                             </div>
+                             <div className="form-div">
+                                 <label htmlFor="job-title" className="font-semibold text-light-text">Job Title</label>
+                                 <input type="text" id="job-title" name="job-title" placeholder="e.g., Senior Developer" required/>
+                             </div>
+                             <div className="form-div">
+                                 <label htmlFor="job-description" className="font-semibold text-light-text">Job Description</label>
+                                 <textarea rows={6} id="job-description" name="job-description" placeholder="Paste the job description here..." required/>
+                             </div>
+                             <div className="form-div">
+                                 <label htmlFor="uploader" className="font-semibold text-light-text">Upload Resume (PDF)</label>
+                                 <FileUploader onFileSelect={handleFileSelect} />
+                             </div>
+                             <button type="submit" className="primary-button mt-4 py-4 text-lg font-semibold hover:shadow-lg hover:shadow-accent-blue/30 transition-all">
+                               ✨ Analyse Resume
+                             </button>
+                         </form>
+                     )}
                 </div>
             </section>
-
         </main>
     )
 }
