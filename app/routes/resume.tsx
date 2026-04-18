@@ -6,7 +6,7 @@ import Deatails from "~/components/Deatails";
 import ATS from "~/components/ATS";
 
 export const meta = () => {[
-    {title : 'Resumind | Review'},
+    {title : 'ResumeIQ | Review'},
     {name : 'description' , content : 'Detailed overview of your resume'},
 ]
 }

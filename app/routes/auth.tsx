@@ -3,7 +3,7 @@ import {usePuterStore} from "~/lib/puter";
 import {useLocation, useNavigate} from "react-router";
 
 export const meta = () => {[
-    {title : 'Resumind | Auth'},
+    {title : 'ResumeIQ | Auth'},
     {name : 'description' , content : 'log into your account'},
 ]
 }

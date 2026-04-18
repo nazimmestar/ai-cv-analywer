@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import {Link} from "react-router";
-import {resumes} from "../../constants";
 import ScoreCircle from "~/components/ScoreCircle";
 import Navbar from "~/components/Navbar";
 import {usePuterStore} from "~/lib/puter";
